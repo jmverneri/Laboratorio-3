@@ -5,6 +5,7 @@ import com.utn.ej1.Book;
 import com.utn.ej2.Bill;
 import com.utn.ej2.Client;
 import com.utn.ej2.SaleItem;
+import com.utn.ej3.*;
 
 import java.util.Arrays;
 
@@ -68,5 +69,18 @@ public class Main {
        Bill factura= new Bill(carlos, items);
        System.out.println(factura);
 
+       ///Punto 3
+        System.out.println("\n***Punto 3***\n");
+        ///a
+        BankClient antonio= new BankClient("Antonio Crhis", 'M');
+        System.out.println(antonio);
+        ///b
+        Account account= new Account(antonio, 10000);
+        System.out.println(account);
+        ///c
+        account.deposit(15000);
+        System.out.println(account);
+        account.withdraw(27000);
+        System.out.println(account);
     }
 }
