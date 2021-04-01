@@ -4,6 +4,7 @@ public class Account {
     private int id= 0;
     private double balance;
     private BankClient client;
+    private String[] transactions= new String[10];
 
     public Account(BankClient client, double balance){
         this.id++;
