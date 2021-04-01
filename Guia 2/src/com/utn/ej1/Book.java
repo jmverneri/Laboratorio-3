@@ -2,17 +2,17 @@ package com.utn.ej1;
 
 import java.util.Arrays;
 
-public class Libro {
+public class Book {
     private String title;
     private double price;
     private int stock;
     private Author[] authors;
 
-    public Libro(){
+    public Book(){
 
     }
 
-    public Libro(String title, double price, int stock, Author[] autor) {
+    public Book(String title, double price, int stock, Author[] autor) {
         this.title = title;
         this.price = price;
         this.stock = stock;
