@@ -14,8 +14,8 @@ public class SaleItem {
         this.price= price;
         this.amount= amount;
     }
-    public static int getId(){
-        return id++;
+    public static int getId(){      ///No funciona para autoincrementar
+        return ++id;                ///Muestra solo el ultimo ID en todos los productos
     }
 
     public String getName() {
