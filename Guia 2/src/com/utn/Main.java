@@ -82,5 +82,13 @@ public class Main {
         System.out.println(account);
         account.withdraw(27000);
         System.out.println(account);
+        account.deposit(5000);
+        account.deposit(3000);
+        account.withdraw(200);
+
+        System.out.println(Arrays.toString(account.getTransactions()));
+
+        BankClient santiago= new BankClient("Santiago Solis", 'M');
+        System.out.println(santiago);
     }
 }
