@@ -15,14 +15,21 @@ public class Main {
         System.out.println(cilindre.area());
         System.out.println(cilindre.volume());
         System.out.println("\n");
-        
+
         ///b
         Cilindre cilindreb= new Cilindre(5.2, 1.2);
         System.out.println(cilindreb.getRadio());
         System.out.println(cilindreb.getHigh());
         System.out.println(cilindreb.area());
         System.out.println(cilindreb.volume());
+        System.out.println("\n");
 
+        ///c
+        cilindreb.area();
+        System.out.println(cilindreb.area());
+        System.out.println(cilindreb.volume());
+
+        System.out.println(cilindreb);
 
     }
 }

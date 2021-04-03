@@ -7,7 +7,9 @@ public class Circle {
     public Circle(){
 
     }
-
+    public Circle(double radio){
+        this.radio= radio;
+    }
     public Circle(double radio, String color){
         this.radio= radio;
         this.color= color;
