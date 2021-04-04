@@ -3,6 +3,8 @@ package com.utn;
 import com.utn.Ej1.Cilindre;
 import com.utn.Ej1.Circle;
 import com.utn.Ej2.*;
+import com.utn.Ej3.Circle1;
+import com.utn.Ej3.Rectangle;
 
 public class Main {
 
@@ -33,7 +35,7 @@ public class Main {
         System.out.println(cilindreb);
 
         /// 2
-        System.out.println("\n***Punto 3***\n");
+        System.out.println("\n***Punto 2***\n");
         //a
         Student jose= new Student("35214236", "Jose", "Manolo", "josemanolo@gmail.com",
                 "Alberti 22", 2020, 5000.0, "Programacion");
@@ -88,5 +90,17 @@ public class Main {
             }
         }
         System.out.println("El total de ingresos de la escuela es: $ " + income + ".");
+
+        /// 3
+        System.out.println("\n***Punto 3***\n");
+
+        Circle1 circle= new Circle1("Verde", true, 2.0, 1.5);
+        double perimeter1= circle.perimeter();
+        double area1= circle.area();
+
+        System.out.println("El circulo tiene un perimetro de " +perimeter1 +
+                        " y un area de " + area1 + " centimetros");
+
+        Rectangle rectangle1= new Rectangle("Amarillo", false, )
     }
 }
