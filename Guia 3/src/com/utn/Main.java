@@ -5,6 +5,7 @@ import com.utn.Ej1.Circle;
 import com.utn.Ej2.*;
 import com.utn.Ej3.Circle1;
 import com.utn.Ej3.Rectangle;
+import com.utn.Ej3.Square;
 
 public class Main {
 
@@ -94,13 +95,24 @@ public class Main {
         /// 3
         System.out.println("\n***Punto 3***\n");
 
-        Circle1 circle= new Circle1("Verde", true, 2.0, 1.5);
+        Circle1 circle= new Circle1("Verde", 2.0, 1.5);
         double perimeter1= circle.perimeter();
         double area1= circle.area();
-
+        System.out.println(circle);
         System.out.println("El circulo tiene un perimetro de " +perimeter1 +
                         " y un area de " + area1 + " centimetros");
 
-        Rectangle rectangle1= new Rectangle("Amarillo", false, )
+        Rectangle rectangle1= new Rectangle("Amarillo", 5.2, 2.0);
+        double perimeter2= rectangle1.perimeter();
+        double area2= rectangle1.area();
+        System.out.println(rectangle1);
+        System.out.println("El rectangulo tiene un perimetro de " + perimeter2 + " y un area de " + area2 +
+                " centrimetros.");
+
+        Square square= new Square("Naranja", 2.5);
+        System.out.println(square);
+        System.out.println("El cuadrado tiene un perimetro de " + square.perimeter() +
+                " y un area de " + square.area() + " centimetros.");
+
     }
 }

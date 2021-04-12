@@ -8,8 +8,8 @@ public class Circle1 extends Figure{
 
     }
 
-    public Circle1(String color, boolean painted, double radio, double diameter){
-        super(color, painted);
+    public Circle1(String color, double radio, double diameter){
+        super(color);
         this.radio= radio;
         this.diameter= diameter;
     }
@@ -38,5 +38,11 @@ public class Circle1 extends Figure{
     @Override
     public double area(){
         return Math.PI* (Math.pow(radio, 2));
+    }
+
+    @Override
+    public String toString() {
+        return "Circulo= radio " + radio + ", diametro " + diameter +
+                ", color " + color;
     }
 }

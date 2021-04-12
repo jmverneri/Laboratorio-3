@@ -1,16 +1,14 @@
 package com.utn.Ej3;
 
 public abstract class Figure {
-    protected String color;
-    protected boolean painted;
+    protected String color= "Rojo";
 
     public Figure(){
 
     }
 
-    public Figure(String color, boolean painted){
+    public Figure(String color){
         this.color= color;
-        this.painted= painted;
     }
     public abstract double area();
 

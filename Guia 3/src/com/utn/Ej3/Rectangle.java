@@ -1,16 +1,21 @@
 package com.utn.Ej3;
 
 public class Rectangle extends Figure{
-    private double base;
-    private double high;
+    protected double base;
+    protected double high;
 
     public Rectangle(){
 
     }
 
-    public Rectangle(String color, boolean painted, double large, double high){
-        super(color, painted);
-        this.base = large;
+    public Rectangle(double base, double high){
+        this.base= base;
+        this.high= high;
+    }
+
+    public Rectangle(String color, double base, double high){
+        super(color);
+        this.base = base;
         this.high= high;
     }
 
@@ -38,5 +43,11 @@ public class Rectangle extends Figure{
     @Override
     public double perimeter() {
         return ((2 * base) + (2 * high));
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangulo= Base " + base + ", altura " + high +
+                ", color " + color;
     }
 }
