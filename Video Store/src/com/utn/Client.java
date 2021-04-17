@@ -15,10 +15,6 @@ public class Client {
         this.direction= direction;
     }
 
-    public void setName(String name){
-        this.name= name;
-    }
-
     public String getName(){
         return name;
     }
@@ -37,5 +33,11 @@ public class Client {
 
     public String getDirection() {
         return direction;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente= nombre: " + name +
+                ", telefono: " + phoneNumber + ", direccion: " + direction + ".";
     }
 }

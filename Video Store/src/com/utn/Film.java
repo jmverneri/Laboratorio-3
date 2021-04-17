@@ -1,10 +1,11 @@
 package com.utn;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Film {
     private String title;
-    private Date releaseDate;
+    private LocalDate releaseDate;
     private int duration;
     private String audience;
     private String origin;
@@ -15,7 +16,7 @@ public class Film {
 
     }
 
-    public Film(String title, Date releaseDate, int duration, String audience, String origin,
+    public Film(String title, LocalDate releaseDate, int duration, String audience, String origin,
             String description, int quantity){
         this.title= title;
         this.releaseDate= releaseDate;
@@ -28,5 +29,36 @@ public class Film {
 
     public String getTitle(){
         return title;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public String getAudience() {
+        return audience;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula= titulo: " + title + ", fecha de lanzamiento: " + releaseDate +
+                ", duracion: " + duration + ", audiencia: " + audience + ", origen: "
+                + origin + ", descripcion: " + description + ", stock: " + quantity + ".";
     }
 }
