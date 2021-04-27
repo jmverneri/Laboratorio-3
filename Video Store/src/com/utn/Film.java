@@ -55,6 +55,10 @@ public class Film {
         return quantity;
     }
 
+    public void setQuantity(int quantity){
+        this.quantity= quantity;
+    }
+
     @Override
     public String toString() {
         return "Pelicula= titulo: " + title + ", fecha de lanzamiento: " + releaseDate +

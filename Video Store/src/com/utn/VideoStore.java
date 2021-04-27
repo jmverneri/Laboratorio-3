@@ -1,5 +1,134 @@
 package com.utn;
 
+import java.time.LocalDate;
+import java.util.*;
+
 public class VideoStore {
+    private List<Film> filmsList = new ArrayList<>();
+    private List<Client> clientsList = new ArrayList<>();
+    private List<Rental> rentalsList = new ArrayList<>();
+
+    public VideoStore(){
+
+    }
+
+    public VideoStore(List<Film> films, List<Client> clients, List<Rental> rentals){
+        this.filmsList = films;
+        this.clientsList = clients;
+        this.rentalsList = rentals;
+    }
+
+    public List<Client> getClientsList() {
+        return clientsList;
+    }
+
+    public void setClientsList(List<Client> clientsList) {
+        this.clientsList = clientsList;
+    }
+
+    public List<Film> getFilms(){
+        return filmsList;
+    }
+
+    public void setFilms(List<Film> films){
+        this.filmsList = films;
+    }
+
+    public List<Rental> getRentalsList(){
+        return rentalsList;
+    }
+
+    public void setRentalsList(List<Rental> rentalsList){
+        this.rentalsList = rentalsList;
+    }
+
+    ///Films
+
+    public void addFilm(Film film){
+        filmsList.add(film);
+    }
+
+    public void removeFilm(String filming){
+        Film film= filmsList.stream().filter(f-> f.getTitle().toUpperCase().contains(filming.toUpperCase()))
+                .findFirst().orElse(null);
+        if(film!=null){
+            filmsList.remove(filming);
+        }
+    }
+
+    public Film filmExistence(String name){
+        Film answer= null;
+        for(Film filming: filmsList){
+            if(filming.getTitle().equalsIgnoreCase(name)){
+                answer= filming;
+            }
+        }
+        return answer;
+    }
+
+    public void showMovies(){
+        for(Film film : filmsList){
+            System.out.println(film);
+        }
+    }
+
+    public void showFilmInfo(String title){
+        Film film= filmsList.stream().filter(f-> f.getTitle().toUpperCase().contains(title.toUpperCase()))
+                .findFirst().orElse(null);
+        if(film!= null){
+            System.out.println(film);
+        }
+    }
+
+    ///Clients
+    public void addClient(Client client){
+        clientsList.add(client);
+    }
+
+    public void removeClient(String name){
+        Client client= clientsList.stream().filter(f-> f.getName().toUpperCase().contains(name.toUpperCase()))
+                .findFirst().orElse(null);
+        if(client!=null){
+            clientsList.remove(client);
+        }
+    }
+
+    public Client clientExistance(String name){
+        Client client= clientsList.stream().filter(f-> f.getName().toUpperCase().contains(name.toUpperCase()))
+                .findFirst().orElse(null);
+        return client;
+    }
+
+    public void showClients(){
+        clientsList.stream().forEach(System.out::println);
+    }
+
+    ///Rental
+    public void newRental(String clientName, String filmName, LocalDate returnDate){
+        Film film= filmExistence(filmName);
+        Client client= clientExistance(clientName);
+
+        if(film != null && film.getQuantity()>0){
+            film.setQuantity(film.getQuantity()-1);
+            if(client!= null){
+                Rental rental= new Rental(film, client, returnDate);
+                rentalsList.add(rental);
+            }
+        }
+    }
+
+    public void currentRentals(){
+        for(Rental rental : rentalsList){
+            System.out.println(rental);
+        }
+    }
+
+    public void returningRentals(){
+        for(Rental rental : rentalsList){
+            if(rental.getReturnDay().equals((LocalDate.now()))){
+                System.out.println(rental);
+            }
+        }
+    }
 
 }
