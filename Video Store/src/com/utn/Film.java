@@ -6,11 +6,13 @@ import java.util.Date;
 public class Film {
     private String title;
     private LocalDate releaseDate;
+    private Gender gender;
     private int duration;
     private String audience;
     private String origin;
     private String description;
     private int quantity;
+    private Integer rentRecord= 0;
 
     public Film(){
 
@@ -39,6 +41,10 @@ public class Film {
         return duration;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
     public String getAudience() {
         return audience;
     }
@@ -53,6 +59,10 @@ public class Film {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public Integer getRentRecord() {
+        return rentRecord;
     }
 
     public void setQuantity(int quantity){

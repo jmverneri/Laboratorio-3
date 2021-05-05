@@ -108,12 +108,10 @@ public class VideoStore {
         Film film= filmExistence(filmName);
         Client client= clientExistance(clientName);
 
-        if(film != null && film.getQuantity()>0){
+        if(film != null && film.getQuantity()>0 && client !=null){
             film.setQuantity(film.getQuantity()-1);
-            if(client!= null){
-                Rental rental= new Rental(film, client, returnDate);
-                rentalsList.add(rental);
-            }
+            Rental rental= new Rental(film, client, returnDate);
+            rentalsList.add(rental);
         }
     }
 
@@ -131,4 +129,44 @@ public class VideoStore {
         }
     }
 
+    public void last10Rentals(String name){
+        rentalsList.sort((r1, r2) -> r1.getReturnDay().compareTo(r2.getReturnDay()));
+        for(int i = 0; i < 10 && i < rentalsList.size(); i++)
+        {
+            Rental r = rentalsList.get(i);
+            if(r.getClientsName().toUpperCase().contains(name.toUpperCase()))
+                System.out.println(r.toString());
+        }
+    }
+
+    public void showMostPopularFilmsByGenre(Gender gender)
+    {
+        filmsList.sort((f1, f2) -> f1.getRentRecord().compareTo(f2.getRentRecord()));
+        List<Film> unitaryList = this.getUnitaryFilmList();
+        unitaryList.forEach((f) -> {
+            if(f.getGender() == gender)
+                System.out.println(f.getTitle());
+        });
+    }
+
+    private List<Film> getUnitaryFilmList()
+    {
+        List<Film> unitaryList = new ArrayList<>();
+        filmsList.forEach(f -> {
+            if(!unitaryList.stream().anyMatch(u -> u.getTitle() == f.getTitle()))
+                unitaryList.add(f);
+        });
+        return unitaryList;
+    }
+
+    public void showMostRentedFilms()
+    {
+        filmsList.sort((f1, f2) -> f2.getRentRecord().compareTo(f1.getRentRecord()));
+        List<Film> unitaryList = this.getUnitaryFilmList();
+
+        for(int i = 0; i < 5 && i < unitaryList.size(); i++)
+        {
+            System.out.println(unitaryList.get(i).getTitle());
+        }
+    }
 }

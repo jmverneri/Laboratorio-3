@@ -25,8 +25,8 @@ public class Rental {
         return film;
     }
 
-    public Client getClient() {
-        return client;
+    public String getClientsName() {
+        return client.getName();
     }
 
     public LocalDate getRetreatDay() {
